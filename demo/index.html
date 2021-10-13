@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document Collection Demo</title>
+
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Roboto Condensed", sans-serif;
+		}
+
+		#container {
+			display: flex;
+			flex-direction: row;
+			height: 100vh;
+		}
+
+		#left {
+			margin: 5px;
+			padding: 5px;
+			width: 50%;
+		}
+
+		#left>div {
+			padding: 10px 0;
+			border-top: solid 1px #000;
+		}
+
+		#editor {
+			margin-bottom: 5px;
+			width: 100%;
+			height: 150px;
+			font-family: consolas;
+			border: solid 1px #000;
+			background: wheat;
+		}
+
+		#right {
+			margin: 5px;
+			padding: 5px;
+			width: 50%;
+		}
+
+		input {
+			margin-bottom: 5px;
+			padding: 5px;
+			width: 100%;
+			background: wheat;
+			border: solid 1px #000;
+		}
+
+		button {
+			padding: 2px 4px;
+			font-family: consolas;
+		}
+
+		#search-result {
+			overflow-y: auto;
+		}
+
+		div.result-item {
+			margin-bottom: 5px;
+			padding: 5px;
+			color: #383838;
+			border: solid 1px #383838;
+			cursor: pointer;
+			user-select: none;
+			-ms-user-select: none;
+		}
+
+		div.result-item:hover {
+			color: blue;
+			border: solid 1px blue;
+		}
+
+		#viewer {
+			width: 100%;
+			height: 100%;
+			font-family: consolas;
+			border: solid 1px #000;
+		}
+	</style>
+
+	<!-- If your application is compiled to ES5, then load this script first. -->
+	<script nomodule src="../node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+
+	<!-- Add support for Web Components to older browsers. -->
+	<script nomodule src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="left">
+			<h1>Document Collection Demo</h1>
+			<div>
+				<h2>New Document</h2>
+				<input id="document-id" type="text" />
+				<textarea id="editor"></textarea>
+				<button id="btn-newid">Generate New ID</button> <button id="btn-template">Template</button>
+				<button id="btn-create">Create</button>
+			</div>
+			<div>
+				<h2>Search</h2>
+				<input id="search-input" type="text" />
+				<div id="search-result"></div>
+			</div>
+		</div>
+		<div id="right">
+			<textarea id="viewer" readonly></textarea>
+		</div>
+	</div>
+
+	<!-- Main script for modern browser -->
+	<script type="module" src="/demo/index.js"></script>
+
+	<!-- Main script for IE11 -->
+	<script nomodule src="/dist/document-collection.umd.js"></script>
+	<script nomodule src="/demo/index-ie11.js"></script>
+</body>
+
+</html>
